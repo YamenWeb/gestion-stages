@@ -25,7 +25,8 @@ class SocieteController extends AbstractController
     {
         return $this->render('societe/index.html.twig', [
             'controller_name' => 'SocieteController',
-            'societes' => $societeRepository->findAll()
+            'societes' => $societeRepository->findAll(),
+            'activated_page' => 'admin-index-societe'
         ]);
     }
 
@@ -51,9 +52,66 @@ class SocieteController extends AbstractController
 
         return $this->render('societe/new.html.twig', [
             'societe' => $societe,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'activated_page' => 'admin-index-societe'
         ]);
 
     }
 
+    /**
+     * @Route("/{id}/edit", name="societe_edit")
+     * @param Request $request
+     * @param Societe $societe
+     * @return Response
+     */
+    public function edit(Request $request, Societe $societe): Response
+    {
+        $form = $this->createForm(SocieteType::class, $societe);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($societe);
+            $entityManager->flush();
+
+            $this->redirectToRoute('societe_index');
+        }
+
+        return $this->render('societe/edit.html.twig', [
+            'societe' => $societe,
+            'form' => $form->createView(),
+            'activated_page' => 'admin-index-societe'
+        ]);
+    }
+
+    /**
+     * @Route("/{id}.show", name="societe.show")
+     * @param Societe $societe
+     * @return Response
+     */
+    public function show (Societe $societe): Response
+    {
+        return $this->render('societe/show.html.twig',[
+            'societe' => $societe,
+            'activated_page' => 'admin-index-societe'
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="societe.delete")
+     * @param Request $request
+     * @param Societe $societe
+     * @return Response
+     */
+    public function delete(Request $request, Societe $societe): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$societe->getId(), $request->request->get('_token')))
+        {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($societe);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('societe_index');
+    }
 }

@@ -42,8 +42,8 @@
                             <td>{{ societe.nom }}</td>
                             <td>{{ societe.nomResponsable }}</td>
                             <td>
-                                <a href="{{ path('formation_show', {'id': societe.id}) }}">show</a>
-                                <a href="{{ path('formation_edit', {'id': societe.id}) }}">edit</a>
+                                <a href="{{ path('societe.show', {'id': societe.id}) }}">show</a>
+                                <a href="{{ path('societe_edit', {'id': societe.id}) }}">edit</a>
                             </td>
                         </tr>
                     {% else %}

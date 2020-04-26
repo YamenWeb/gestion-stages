@@ -22,7 +22,8 @@ class EncadrantController extends AbstractController
     {
         return $this->render('encadrant/index.html.twig', [
             'controller_name' => 'EncadrantController',
-            'encadrants' => $encadrantRepository->findAll()
+            'encadrants' => $encadrantRepository->findAll(),
+            'activated_page' => 'admin-index-encadrant'
         ]);
     }
 
@@ -45,7 +46,8 @@ class EncadrantController extends AbstractController
 
         return $this->render('encadrant/new.html.twig',[
             'encadrant' => $encadrant,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'activated_page' => 'admin-index-encadrant'
         ]);
 
     }
@@ -73,7 +75,8 @@ class EncadrantController extends AbstractController
 
         return $this->render('encadrant/edit.html.twig',[
             'encadrant' => $encadrant,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'activated_page' => 'admin-index-encadrant'
         ]);
     }
 
@@ -86,7 +89,8 @@ class EncadrantController extends AbstractController
     public function show(Encadrant $encadrant): Response
     {
         return $this->render('encadrant/show.html.twig',[
-            'encadrant' => $encadrant
+            'encadrant' => $encadrant,
+            'activated_page' => 'admin-index-encadrant'
             ]);
     }
 

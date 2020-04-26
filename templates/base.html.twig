@@ -44,10 +44,31 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <li class="nav-item {% if activated_page is defined and activated_page == "admin-index" %} active {% endif %}">
             <a class="nav-link" href="index.html">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
+        </li>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item {% if activated_page is defined and activated_page == "admin-index-formation" %} active {% endif %}">
+            <a class="nav-link" href="{{ path('formation_index') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Formations</span></a>
+        </li>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item {% if activated_page is defined and activated_page == "admin-index-encadrant" %} active {% endif %}">
+            <a class="nav-link" href="{{ path('encadrant_index') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Encadrants</span></a>
+        </li>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item {% if activated_page is defined and activated_page == "admin-index-societe" %} active {% endif %}">
+            <a class="nav-link" href="{{ path('societe_index') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Sociétés</span></a>
         </li>
 
         <!-- Divider -->

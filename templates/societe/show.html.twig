@@ -1,10 +1,67 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-
-{% endblock %}
+{% block title %}Societe - show{% endblock %}
 
 {% block body %}
+    <h1>Formation</h1>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Société</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ societe.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nom</th>
+                        <td>{{ societe.nom }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nom du responsable</th>
+                        <td>{{ societe.nomResponsable }}</td>
+                    </tr>
+                    <tr>
+                        <th>Numéro de téléphone</th>
+                        <td>{{ societe.telephone }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ societe.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Ville</th>
+                        <td>{{ societe.ville }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-9">
+            <a class="btn btn-secondary btn-icon-split" href="{{ path('societe_index') }}">
+        <span class="icon text-white-50">
+          <i class="fas fa-arrow-left"></i>
+        </span>
+                <span class="text">Retour à la liste</span>
+            </a>
+            <a class="btn btn-warning btn-icon-split" href="{{ path('societe_edit', {'id': societe.id}) }}">
+        <span class="icon text-white-50">
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+                <span class="text">Modifier</span>
+            </a>
+        </div>
+        <div class="col-3">
+            {{ include('societe/_delete_form.html.twig') }}
+        </div>
+    </div>
+
+
 
 {% endblock %}
-
