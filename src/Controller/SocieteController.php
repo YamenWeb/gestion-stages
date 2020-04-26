@@ -56,6 +56,7 @@ class SocieteController extends AbstractController
             'activated_page' => 'admin-index-societe'
         ]);
 
+
     }
 
     /**
