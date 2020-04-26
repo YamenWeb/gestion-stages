@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+    <h1>Formation</h1>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Formation</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ formation.id }}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ formation.nom }}</td>
+                </tr>
+                <tr>
+                    <th>Domaine</th>
+                    <td>{{ formation.domaine }}</td>
+                </tr>
+                <tr>
+                    <th>Nb_annees</th>
+                    <td>{{ formation.nbAnnees }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col-9">
+            <a class="btn btn-secondary btn-icon-split" href="{{ path('formation_index') }}">
+        <span class="icon text-white-50">
+          <i class="fas fa-arrow-left"></i>
+        </span>
+                <span class="text">Retour à la liste</span>
+            </a>
+            <a class="btn btn-warning btn-icon-split" href="{{ path('formation_edit', {'id': formation.id}) }}">
+        <span class="icon text-white-50">
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+                <span class="text">Modifier</span>
+            </a>
+        </div>
+        <div class="col-3">
+            {{ include('formation/_delete_form.html.twig') }}
+        </div>
+    </div>
+
+
+
+{% endblock %}

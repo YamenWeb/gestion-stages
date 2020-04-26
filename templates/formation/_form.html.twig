@@ -1,0 +1,18 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+
+
+<a class="btn btn-secondary btn-icon-split" href="{{ path('formation_index') }}">
+        <span class="icon text-white-50">
+          <i class="fas fa-arrow-left"></i>
+        </span>
+    <span class="text">back to list</span>
+</a>
+<button class="btn btn-success btn-icon-split">
+    <span class="icon text-white-50">
+                      <i class="fas fa-check"></i>
+                    </span>
+    <span class="text">{{ button_label|default('Save') }}</span>
+
+{{ form_end(form) }}

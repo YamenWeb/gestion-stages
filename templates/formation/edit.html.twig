@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Formation{% endblock %}
+
+{% block body %}
+{#    <h1>Edit Formation</h1>#}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Modification de la formation </h6>
+    </div>
+    <div class="card-body">
+        {{ include('formation/_form.html.twig', {'button_label': 'Update'}) }}
+
+{#        <a href="{{ path('formation_index') }}">back to list</a>#}
+
+        {{ include('formation/_delete_form.html.twig') }}
+    </div>
+</div>
+
+{% endblock %}

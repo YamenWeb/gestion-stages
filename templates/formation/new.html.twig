@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Formation{% endblock %}
+
+{% block body %}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Ajouter une formation </h6>
+    </div>
+    <div class="card-body">
+    {{ include('formation/_form.html.twig') }}
+    </div>
+</div>
+
+    <a href="{{ path('formation_index') }}">back to list</a>
+{% endblock %}

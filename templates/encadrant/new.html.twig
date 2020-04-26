@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Ajouter un encadrant </h6>
+        </div>
+        <div class="card-body">
+            {{ include('encadrant/_form.html.twig') }}
+        </div>
+    </div>
+{#    <a class="btn btn-secondary btn-icon-split" href="{{ path('formation_index') }}">#}
+{#        <span class="icon text-white-50">#}
+{#          <i class="fas fa-arrow-left"></i>#}
+{#        </span>#}
+{#        <span class="text">back to list</span>#}
+{#    </a>#}
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
