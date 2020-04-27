@@ -11,7 +11,7 @@ use App\Entity\Encadrant;
 use App\Repository\EncadrantRepository;
 
 /**
- * @Route("/encadrant")
+ * @Route("/admin/encadrant")
  */
 class EncadrantController extends AbstractController
 {
