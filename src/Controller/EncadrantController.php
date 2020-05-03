@@ -82,7 +82,7 @@ class EncadrantController extends AbstractController
 
     /**
      * @param Encadrant $encadrant
-     * @Route("/{id}.show", name="encadrant_show")
+     * @Route("/{id}", name="encadrant_show", methods={"GET"})
      * @return Response
      */
 
@@ -97,13 +97,13 @@ class EncadrantController extends AbstractController
     /**
      * @param Request $request
      * @param Encadrant $encadrant
-     * @Route("/{id}", name="encadrant_delete")
+     * @Route("/{id}", name="encadrant_delete", methods={"DELETE"})
      * @return Response
      */
 
     public function delete(Request $request ,Encadrant $encadrant):Response
     {
-        if($this->isCsrfTokenValid('delete'.$encadrant->getId(),$request->request->get('_toker')))
+        if($this->isCsrfTokenValid('delete'.$encadrant->getId(),$request->request->get('_token')))
         {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($encadrant);

@@ -86,7 +86,7 @@ class SocieteController extends AbstractController
     }
 
     /**
-     * @Route("/{id}.show", name="societe.show")
+     * @Route("/{id}", name="societe.show", methods={"GET"})
      * @param Societe $societe
      * @return Response
      */
@@ -99,7 +99,7 @@ class SocieteController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="societe.delete")
+     * @Route("/{id}", name="societe.delete", methods={"DELETE"})
      * @param Request $request
      * @param Societe $societe
      * @return Response

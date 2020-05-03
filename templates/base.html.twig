@@ -50,6 +50,15 @@
                 <span>Dashboard</span></a>
         </li>
 
+        <!-- Nav Item - Utilisateur -->
+        {% if is_granted('ROLE_SUPER_ADMIN') %}
+        <li class="nav-item {% if activated_page is defined and activated_page == "admin-index-utilisateur" %} active {% endif %}">
+            <a class="nav-link" href="{{ path('utilisateur_index') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Utilisateurs</span></a>
+        </li>
+        {% endif %}
+
         <!-- Nav Item - Charts -->
         <li class="nav-item {% if activated_page is defined and activated_page == "admin-index-formation" %} active {% endif %}">
             <a class="nav-link" href="{{ path('formation_index') }}">

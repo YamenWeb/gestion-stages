@@ -39,19 +39,38 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     // /**
     //  * @return User[] Returns an array of User objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findAdminUser()
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+
+//        $queryBuilder =  $this->createQueryBuilder('u')
+//            ->andWhere('u.exampleField = :val')
+//            ->setParameter('discr', 'user')
+//            ->orderBy('u.id', 'ASC')
+//            ->setMaxResults(10)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//        $qb = $this->createQueryBuilder('u');
+//        $query=$qb->getQuery();
+//        $qb->getResul
+//        dd($queryBuilder->getDQL());
+
+        // Méthode 2 : en passant par le raccourci (je recommande)
+        $queryBuilder = $this->createQueryBuilder('a');
+
+        // On n'ajoute pas de critère ou tri particulier, la construction
+        // de notre requête est finie
+
+        // On récupère la Query à partir du QueryBuilder
+        $query = $queryBuilder->getQuery();
+
+        // On récupère les résultats à partir de la Query
+        $results = $query->getResult();
+
+        return $queryBuilder;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?User
