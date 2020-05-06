@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200503161823 extends AbstractMigration
+final class Version20200504144405 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -27,7 +27,6 @@ final class Version20200503161823 extends AbstractMigration
         $this->addSql('DROP TABLE user_old');
         $this->addSql('ALTER TABLE etudiant ADD CONSTRAINT FK_717E22E3FEF1BA4 FOREIGN KEY (encadrant_id) REFERENCES encadrant (id)');
         $this->addSql('ALTER TABLE etudiant ADD CONSTRAINT FK_717E22E35200282E FOREIGN KEY (formation_id) REFERENCES formation (id)');
-        $this->addSql('ALTER TABLE etudiant ADD CONSTRAINT FK_717E22E3BF396750 FOREIGN KEY (id) REFERENCES user (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE stage_etudiant DROP FOREIGN KEY FK_7999E68EDDEAB1A3');
         $this->addSql('ALTER TABLE stage_etudiant ADD CONSTRAINT FK_7999E68EDDEAB1A3 FOREIGN KEY (etudiant_id) REFERENCES etudiant (id) ON DELETE CASCADE');
     }
@@ -43,7 +42,6 @@ final class Version20200503161823 extends AbstractMigration
         $this->addSql('ALTER TABLE etudiant_old ADD CONSTRAINT FK_717E22E3FEF1BA4 FOREIGN KEY (encadrant_id) REFERENCES encadrant (id)');
         $this->addSql('ALTER TABLE etudiant DROP FOREIGN KEY FK_717E22E3FEF1BA4');
         $this->addSql('ALTER TABLE etudiant DROP FOREIGN KEY FK_717E22E35200282E');
-        $this->addSql('ALTER TABLE etudiant DROP FOREIGN KEY FK_717E22E3BF396750');
         $this->addSql('ALTER TABLE stage_etudiant DROP FOREIGN KEY FK_7999E68EDDEAB1A3');
         $this->addSql('ALTER TABLE stage_etudiant ADD CONSTRAINT FK_7999E68EDDEAB1A3 FOREIGN KEY (etudiant_id) REFERENCES etudiant_old (id) ON DELETE CASCADE');
     }

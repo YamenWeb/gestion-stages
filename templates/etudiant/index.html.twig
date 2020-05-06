@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiant{% endblock %}
+{% block stylesheets %}
+    <!-- Custom styles for this page -->
+    <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-8">
+        <h2>Liste des étudiants</h2>
+    </div>
+    <div class="col-4">
+        <a href="{{ path('etudiant_new') }}" class="btn btn-success btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-check"></i>
+                    </span>
+            <span class="text">Creer un nouveau étudiant</span>
+        </a>
+    </div>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Etudiants</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            {% for etudiant in etudiants %}
+            {{ dump(etudiant) }}
+            {% endfor %}
+    <table class="table table-bordered" id="dataTable" width="100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+{#                <th>Roles</th>#}
+{#                <th>Password</th>#}
+                <th>Nom</th>
+                <th>Prenom</th>
+{#                <th>Date_naissance</th>#}
+{#                <th>Sexe</th>#}
+{#                <th>Ville</th>#}
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etudiant in etudiants %}
+            <tr>
+                <td>{{ etudiant.id }}</td>
+                <td>{{ etudiant.email }}</td>
+{#                <td>{{ etudiant.roles ? etudiant.roles|json_encode : '' }}</td>#}
+{#                <td>{{ etudiant.password }}</td>#}
+                <td>{{ etudiant.nom }}</td>
+                <td>{{ etudiant.prenom }}</td>
+{#                <td>{{ etudiant.dateNaissance ? etudiant.dateNaissance|date('Y-m-d') : '' }}</td>#}
+{#                <td>{{ etudiant.sexe }}</td>#}
+{#                <td>{{ etudiant.ville }}</td>#}
+                <td>
+{#                    actions#}
+                    <a href="{{ path('etudiant_show', {'id': etudiant.id}) }}">show</a>
+                    <a href="{{ path('etudiant_edit', {'id': etudiant.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+    <!-- Page level plugins -->
+    <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script>
+        // Call the dataTables jQuery plugin
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
+        });
+    </script>
+{% endblock  %}
