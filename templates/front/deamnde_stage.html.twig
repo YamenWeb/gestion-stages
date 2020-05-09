@@ -1,0 +1,27 @@
+{% extends 'base_front.html.twig' %}
+
+{% block body %}
+<div class="jumbotron">
+    <h1>Demande des Stages</h1>
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+{#            <div class="flash-{{ label }}">#}
+{#                {{ message }}#}
+{#            </div>#}
+
+    <div class="alert alert-{{ label }}" role="alert">
+        {{ message }}
+    </div>
+        {% endfor %}
+    {% endfor %}
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+</div>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

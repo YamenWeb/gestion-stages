@@ -40,7 +40,7 @@
                 <th>Prenom</th>
 {#                <th>Date_naissance</th>#}
 {#                <th>Sexe</th>#}
-{#                <th>Ville</th>#}
+                <th>Formation</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -55,7 +55,7 @@
                 <td>{{ etudiant.prenom }}</td>
 {#                <td>{{ etudiant.dateNaissance ? etudiant.dateNaissance|date('Y-m-d') : '' }}</td>#}
 {#                <td>{{ etudiant.sexe }}</td>#}
-{#                <td>{{ etudiant.ville }}</td>#}
+                <td>{{ etudiant.formation.nom }}</td>
                 <td>
 {#                    actions#}
                     <a href="{{ path('etudiant_show', {'id': etudiant.id}) }}">show</a>

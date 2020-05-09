@@ -30,7 +30,13 @@ class StageType extends AbstractType
         $builder
             ->add('titre')
             ->add('description')
-            ->add('type')
+//            ->add('type')
+            ->add('type',ChoiceType::class, [
+                'choices'  => [
+                    'PFE' => 'PFE',
+                    'Ouvrier' => 'Ouvrier',
+                ],
+            ])
             ->add('duree')
             ->add('date_debut')
             ->add('disponibilitee')

@@ -1,0 +1,48 @@
+{% extends 'base_front.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1>Liste des encadrants</h1>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>nom</th>
+                    <th>prenom</th>
+                    <th>téléphone</th>
+                    <th>Emmail</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for encadrant in pagination   %}
+                <tr>
+                    <td>{{ encadrant.id }}</td>
+                    <td>{{ encadrant.nom }}</td>
+                    <td>{{ encadrant.prenom }}</td>
+                    <td>{{ encadrant.telephone }}</td>
+                    <td>{{ encadrant.email }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="row" style="width: 100%">
+                <div class="col">
+                </div>
+                <div class="col">
+                    <div class="navigation">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block title %}
+Encadrants
+{% endblock %}
+

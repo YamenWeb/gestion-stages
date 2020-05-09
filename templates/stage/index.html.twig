@@ -18,6 +18,16 @@
                 <span class="text">Creer un nouveau stage</span>
             </a>
         </div>
+        <div class="col-12">
+            {% for message in app.flashes('success') %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+            {% endfor %}
+        </div>
     </div>
 
     <div class="card shadow mb-4">
@@ -34,8 +44,8 @@
 {#                        <th>Description</th>#}
                         <th>Type</th>
                         <th>Duree</th>
-                        <th>Date_debut</th>
-                        <th>Disponibilitee</th>
+                        <th>Formation</th>
+                        <th>Dispo</th>
                         <th>actions</th>
                     </tr>
                     </thead>
@@ -46,8 +56,9 @@
                             <td>{{ stage.titre }}</td>
 {#                            <td>{{ stage.description }}</td>#}
                             <td>{{ stage.type }}</td>
-                            <td>{{ stage.duree }}</td>
-                            <td>{{ stage.dateDebut ? stage.dateDebut|date('Y-m-d') : '' }}</td>
+                            <td>{{ stage.duree }} mois</td>
+{#                            <td>{{ stage.dateDebut ? stage.dateDebut|date('Y-m-d') : '' }}</td>#}
+                            <td>{{ stage.formation.nom }}</td>
                             <td>{{ stage.disponibilitee ? 'Yes' : 'No' }}</td>
                             <td>
                                 <a href="{{ path('stage_show', {'id': stage.id}) }}">show</a>

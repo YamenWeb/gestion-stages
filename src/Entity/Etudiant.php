@@ -10,15 +10,6 @@ use Doctrine\ORM\Mapping\Column;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EtudiantRepository")
- *  @ORM\AttributeOverrides({
- *      @AttributeOverride(name="id",
- *          column=@Column(
- *              name     = "id",
- *              type     = "integer",
- *              length   = 140
- *          )
- *      )
- * })
  */
 class Etudiant extends User
 {
@@ -67,10 +58,10 @@ class Etudiant extends User
         $this->stages = new ArrayCollection();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+//    public function getId(): ?int
+//    {
+//        return $this->id;
+//    }
 
 
     public function getDateNaissance(): ?\DateTimeInterface

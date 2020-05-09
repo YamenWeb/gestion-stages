@@ -54,7 +54,7 @@ class EtudiantController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($etudiant);
             $entityManager->flush();
-
+            $this->addFlash("success", "L'insertion a été éfféctué avec succes !!");
             return $this->redirectToRoute('etudiant_index');
         }
 
@@ -85,6 +85,12 @@ class EtudiantController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $etudiant->setPassword($this->passwordEncoder->encodePassword(
+                $etudiant,
+                $request->request->get('etudiant')['password']['first']
+            ));
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('etudiant_index');
