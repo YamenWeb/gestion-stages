@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un stage{% endblock %}
+
+{% block body %}
+{#    <h1>Edit Formation</h1>#}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Modification d'un stage' </h6>
+    </div>
+    <div class="card-body">
+    {{ include('stage/_form.html.twig', {'button_label': 'Update'}) }}
+
+        {{ include('stage/_delete_form.html.twig') }}
+    </div>
+</div>
+
+{% endblock %}

@@ -11,7 +11,7 @@ use App\Entity\Encadrant;
 use App\Repository\EncadrantRepository;
 
 /**
- * @Route("/encadrant")
+ * @Route("/admin/encadrant")
  */
 class EncadrantController extends AbstractController
 {
@@ -22,7 +22,8 @@ class EncadrantController extends AbstractController
     {
         return $this->render('encadrant/index.html.twig', [
             'controller_name' => 'EncadrantController',
-            'encadrants' => $encadrantRepository->findAll()
+            'encadrants' => $encadrantRepository->findAll(),
+            'activated_page' => 'admin-index-encadrant'
         ]);
     }
 
@@ -45,7 +46,8 @@ class EncadrantController extends AbstractController
 
         return $this->render('encadrant/new.html.twig',[
             'encadrant' => $encadrant,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'activated_page' => 'admin-index-encadrant'
         ]);
 
     }
@@ -73,33 +75,35 @@ class EncadrantController extends AbstractController
 
         return $this->render('encadrant/edit.html.twig',[
             'encadrant' => $encadrant,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'activated_page' => 'admin-index-encadrant'
         ]);
     }
 
     /**
      * @param Encadrant $encadrant
-     * @Route("/{id}.show", name="encadrant_show")
+     * @Route("/{id}", name="encadrant_show", methods={"GET"})
      * @return Response
      */
 
     public function show(Encadrant $encadrant): Response
     {
         return $this->render('encadrant/show.html.twig',[
-            'encadrant' => $encadrant
+            'encadrant' => $encadrant,
+            'activated_page' => 'admin-index-encadrant'
             ]);
     }
 
     /**
      * @param Request $request
      * @param Encadrant $encadrant
-     * @Route("/{id}", name="encadrant_delete")
+     * @Route("/{id}", name="encadrant_delete", methods={"DELETE"})
      * @return Response
      */
 
     public function delete(Request $request ,Encadrant $encadrant):Response
     {
-        if($this->isCsrfTokenValid('delete'.$encadrant->getId(),$request->request->get('_toker')))
+        if($this->isCsrfTokenValid('delete'.$encadrant->getId(),$request->request->get('_token')))
         {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($encadrant);

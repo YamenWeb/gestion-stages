@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/formation")
+ * @Route("/admin/formation")
  */
 class FormationController extends AbstractController
 {
@@ -22,6 +22,7 @@ class FormationController extends AbstractController
     {
         return $this->render('formation/index.html.twig', [
             'formations' => $formationRepository->findAll(),
+            'activated_page' => 'admin-index-formation'
         ]);
     }
 
@@ -45,6 +46,7 @@ class FormationController extends AbstractController
         return $this->render('formation/new.html.twig', [
             'formation' => $formation,
             'form' => $form->createView(),
+            'activated_page' => 'admin-index-formation'
         ]);
     }
 
@@ -55,6 +57,7 @@ class FormationController extends AbstractController
     {
         return $this->render('formation/show.html.twig', [
             'formation' => $formation,
+            'activated_page' => 'admin-index-formation'
         ]);
     }
 
@@ -75,6 +78,7 @@ class FormationController extends AbstractController
         return $this->render('formation/edit.html.twig', [
             'formation' => $formation,
             'form' => $form->createView(),
+            'activated_page' => 'admin-index-formation'
         ]);
     }
 
