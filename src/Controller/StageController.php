@@ -39,7 +39,7 @@ class StageController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($stage);
             $entityManager->flush();
-
+            $this->addFlash("success", "L'insertion a été éfféctué avec succes !!");
             return $this->redirectToRoute('stage_index');
         }
 
